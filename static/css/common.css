@@ -1,0 +1,558 @@
+/* 阿里适量图标开始*/
+@import "//at.alicdn.com/t/font_626489_k1xs56xnuje5ewmi.css";
+/* 阿里适量图标结束*/
+
+body {
+  margin: 0 auto;
+  height: auto;
+  background-color: #FFF;
+}
+
+p {
+  text-indent: 2em;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  max-width: 80%;
+}
+
+/**************************************************************/
+
+.theme {
+  color: #F56C6C;
+}
+
+.warning {
+  color: #E6A23C;
+}
+
+.success {
+  color: #67C23A;
+}
+
+.info {
+  color: #909399;
+}
+
+/* 阴影开始*/
+.shadow {
+  -moz-box-shadow: 0 0 5px #888888;
+  -webkit-box-shadow: 0 0 5px #888888;
+  box-shadow: 0 0 5px #888888;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#888888')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#888888');
+}
+
+/* 阴影结束*/
+
+/* 位置开始*/
+.fix {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.top0 {
+  top: 0;
+}
+
+.left0 {
+  left: 0;
+}
+
+.bottom0 {
+  bottom: 0;
+}
+
+.bottom10vh {
+  bottom: 10vh;
+}
+
+.bottom20vh {
+  bottom: 20vh;
+}
+
+.right0 {
+  right: 0;
+}
+
+.z10000 {
+  z-index: 10000;
+}
+
+/* 位置结束*/
+
+/* 内容位置开始 */
+.textcenter {
+  text-align: center;
+}
+
+.textleft {
+  text-align: left;
+}
+
+.textright {
+  text-align: right;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+/* 内容位置结束*/
+
+/* 宽度开始 */
+.wd100p {
+  width: 100%;
+}
+
+.wd95p {
+  width: 95%;
+}
+
+.wd90p {
+  width: 90%;
+}
+
+.wd80p {
+  width: 80%;
+}
+
+.wd70p {
+  width: 70%;
+}
+
+.wd60p {
+  width: 60%;
+}
+
+.wd50p {
+  width: 50%;
+}
+
+.wd40p {
+  width: 40%;
+}
+
+.wd30p {
+  width: 30%;
+}
+
+.wd20p {
+  width: 20%;
+}
+
+.wd10p {
+  width: 10%;
+}
+
+.wd5p {
+  width: 5%;
+}
+
+/* 宽度结束 */
+
+/* 背景颜色开始*/
+.bg-white {
+  background-color: #FFF;
+}
+
+.bg-success {
+  background-color: #67C23A;
+}
+
+.bg-theme {
+  background-color: #F56C6C;
+}
+
+.bg-gray {
+  background-color: #eeeeee;
+}
+
+/* 背景颜色结束*/
+
+/* 字体颜色开始 */
+/* 主要颜色*/
+.font-primary-color {
+  color: #303133;
+}
+
+/*常规*/
+.font-common-color {
+  color: #606266;
+}
+
+/*次要*/
+.font-minor-color {
+  color: #909399;
+}
+
+/*占位*/
+.font-placeholder-color {
+  color: #C0C4CC;
+}
+
+.font-danger-color {
+  color: #F56C6C;
+}
+
+/* 字体颜色结束 */
+
+/* 字体大小开始 */
+.ft10 {
+  font-size: 10px;
+}
+
+.ft15 {
+  font-size: 15px;
+}
+
+.ft20 {
+  font-size: 20px;
+}
+
+.ft25 {
+  font-size: 25px;
+}
+
+.ft30 {
+  font-size: 30px;
+}
+
+.ft35 {
+  font-size: 35px;
+}
+
+.ft40 {
+  font-size: 40px;
+}
+
+/* 字体大小结束 */
+
+/* 字体宽度开始 */
+.ft-bolder {
+  font-weight: bolder;
+}
+
+/* 字体宽度结束 */
+
+.ft-style-italic {
+  font-style: italic;
+}
+
+/* 高度开始*/
+.h-initial {
+  height: initial;
+}
+
+.h90 {
+  width: 90px;
+  line-height: 90px;
+}
+
+.h60 {
+  height: 60px;
+  line-height: 60px;
+}
+
+.h50 {
+  height: 50px;
+  line-height: 50px;
+}
+
+.h40 {
+  height: 40px;
+  line-height: 40px;
+}
+
+.h35 {
+  height: 35px;
+  line-height: 35px;
+}
+
+.h30 {
+  height: 30px;
+  line-height: 30px;
+}
+
+.h20 {
+  height: 20px;
+  line-height: 20px;
+}
+
+.h10 {
+  height: 10px;
+  line-height: 10px;
+}
+
+.lh10 {
+  line-height: 10px;
+}
+
+.lh20 {
+  line-height: 20px;
+}
+
+.lh25 {
+  line-height: 25px;
+}
+
+.lh30 {
+  line-height: 30px;
+}
+
+.lh40 {
+  line-height: 40px;
+}
+
+.lh50 {
+  line-height: 50px;
+}
+
+.lh60 {
+  line-height: 60px;
+}
+
+/* 高度结束*/
+
+/* 圆角开始*/
+.br5 {
+  border-radius: 5px;
+}
+
+.br10 {
+  border-radius: 10px;
+}
+
+.br20 {
+  border-radius: 20px;
+}
+
+.br50p {
+  border-radius: 50%;
+}
+
+/* 圆角结束 */
+.vertical-align {
+  vertical-align: middle;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+/* margin*/
+.marginAuto {
+  margin: 0 auto;
+}
+
+.mt5 {
+  margin-top: 5px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mt40 {
+  margin-top: 40px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+
+.ml30 {
+  margin-left: 30px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.mt60 {
+  margin-top: 60px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mb60 {
+  margin-bottom: 60px;
+}
+
+/*margin结束*/
+
+/* padding */
+.pt10 {
+  padding-top: 10px;
+}
+
+.pt5 {
+  padding-top: 5px;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.pb5 {
+  padding-bottom: 5px;
+}
+
+.pt20 {
+  padding-top: 20px;
+}
+
+.pb20 {
+  padding-bottom: 20px;
+}
+
+.pl20 {
+  padding-left: 20px;
+}
+
+.pl25 {
+  padding-left: 25px;
+}
+
+.pl10 {
+  padding-left: 10px;
+}
+
+.pr20 {
+  padding-right: 20px;
+}
+
+.pr10 {
+  padding-right: 10px;
+}
+
+.pl5 {
+  padding-left: 5px;
+}
+
+.pr5 {
+  padding-right: 5px;
+}
+
+/* padding 结束*/
+
+/* 边框开始*/
+.border-all {
+  border: 1px solid;
+}
+
+.border-top {
+  border-top: 1px solid;
+}
+
+.border-right {
+  border-right: 1px solid;
+}
+
+.border-left {
+  border-left: 1px solid;
+}
+
+.border-none {
+  border: none;
+}
+
+/* 二级边框*/
+.border-bottom {
+  border-bottom: 1px solid;
+}
+
+.border-bottom2 {
+  border-bottom: 2px solid;
+}
+
+.border-color-one {
+  border-color: #DCDFE6;
+}
+
+.border-color-two {
+  border-color: #E4E7ED;
+}
+
+.border-color-three {
+  border-color: #EBEEF5;
+}
+
+.border-color-four {
+  border-color: #F2F6FC;
+}
+
+.border-color-theme {
+  border-color: #F56C6C;
+}
+
+/* 边框结束*/
+
+.cursor-point:hover {
+  cursor: pointer;
+}
+
+.cursor-point-color-theme:hover {
+  color: #F56C6C;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.overflow-hidden-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.img-center {
+  position: relative;
+  top: 50%;
+  margin-top: 10%;
+}
+
+.div-hover:hover {
+  -moz-box-shadow: 0 0 5px #F56C6C;
+  -webkit-box-shadow: 0 0 5px #F56C6C;
+  box-shadow: 0 0 5px #F56C6C;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#F56C6C')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#F56C6C');
+  border-radius: 5px;
+}
