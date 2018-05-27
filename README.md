@@ -1,4 +1,4 @@
-# la-manager
+# Vue-manager
 
 > A Vue.js project
 
