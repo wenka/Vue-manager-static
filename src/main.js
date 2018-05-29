@@ -7,13 +7,17 @@ import ElementUI from 'element-ui'
 import '../static/css/element-#F56C6C/index.css'
 import '../static/css/common.css'
 
+import {Global} from './common/constant'
+
 Vue.use(ElementUI)
 Vue.config.productionTip = false
+
+Vue.prototype.$global = Global
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })

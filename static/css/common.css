@@ -1,5 +1,5 @@
 /* 阿里适量图标开始*/
-@import "//at.alicdn.com/t/font_626489_k1xs56xnuje5ewmi.css";
+@import "//at.alicdn.com/t/font_626489_tdl4og3dghjdzpvi.css";
 /* 阿里适量图标结束*/
 
 body {
@@ -431,6 +431,10 @@ img {
 
 .pt20 {
   padding-top: 20px;
+}
+
+.pt60 {
+  padding-top: 60px;
 }
 
 .pb20 {

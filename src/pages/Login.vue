@@ -36,7 +36,7 @@
 
       <!-- 登录按钮 -->
       <div class="textcenter mt20">
-        <el-button type="primary" size="small">登录</el-button>
+        <el-button type="primary" size="small" @click="loginSubmit">登录</el-button>
       </div>
     </div>
   </div>
@@ -64,12 +64,17 @@
       inputBlur: function (el, ref) {
         console.log(el)
         let v = el.target.value
-        if (!v){
+        if (!v) {
           el.srcElement.style.display = 'none'
           this.$refs[ref].style.fontSize = '15px'
           this.$refs[ref].style.lineHeight = '30px'
           this.$refs[ref].style.color = '#909399'
         }
+      },
+      loginSubmit: function () {
+        this.$router.push({
+          name: 'Main'
+        })
       }
     }
   }
