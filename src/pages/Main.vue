@@ -2,14 +2,17 @@
   <section>
     <el-container style="height: 100vh">
       <!-- 菜单begin -->
-      <el-aside width="10vw" class="overflow-hidden border-right border-color-theme">
+      <el-aside :width="collapse?'64px':'300px'" class="overflow-hidden border-right border-color-theme">
         <div class="theme textcenter ft-bolder lh25 cursor-point cursor-point-color-theme lh60">
-          <span class="ft-style-italic">LazyBook</span>
+          <span :class="{ftStyleItalic:collapse}">{{collapse?'文卡':'LazyBook'}}</span>
         </div>
         <div class="mt5">
-          <el-menu unique-opened mode="vertical" :active-text-color="$global.theme">
+          <el-menu unique-opened mode="vertical" :active-text-color="$global.theme" :collapse="collapse">
             <el-submenu index="1">
-              <template slot="title"><span class="iconfont icon-neirong">&nbsp;</span>内容管理</template>
+              <template slot="title">
+                <i class="iconfont icon-neirong">&nbsp;</i>
+                <span slot="title">内容管理</span>
+              </template>
               <el-menu-item-group>
                 <template slot="title">文章</template>
                 <el-menu-item index="1-1"><span class="iconfont icon-bianji">&nbsp;</span>发表文章</el-menu-item>
@@ -29,7 +32,10 @@
               </el-menu-item-group>
             </el-submenu>
             <el-submenu index="2">
-              <template slot="title"><span class="iconfont icon-renyuanguanli">&nbsp;</span>用户管理</template>
+              <template slot="title">
+                <i class="iconfont icon-renyuanguanli">&nbsp;</i>
+                <span slot="title">用户管理</span>
+              </template>
               <el-menu-item-group>
                 <template slot="title">用户</template>
                 <el-menu-item index="2-1"><span class="iconfont icon-yonghuliebiao">&nbsp;</span>用户列表</el-menu-item>
@@ -42,7 +48,10 @@
               </el-menu-item-group>
             </el-submenu>
             <el-submenu index="3">
-              <template slot="title"><span class="iconfont icon-shezhi">&nbsp;</span>系统管理</template>
+              <template slot="title">
+                <i class="iconfont icon-shezhi">&nbsp;</i>
+                <span slot="title">系统管理</span>
+              </template>
               <el-menu-item-group>
                 <template slot="title">反馈</template>
                 <el-menu-item index="3-1"><span class="iconfont icon-yijian">&nbsp;</span>意见列表</el-menu-item>
@@ -61,7 +70,20 @@
       </el-aside>
       <!-- 菜单end -->
       <el-container>
-        <el-header class="shadow">header</el-header>
+        <el-header class="shadow">
+          <el-row>
+            <el-col :span="1">
+              <div class="inline-block cursor-point-color-theme cursor-point" @click="menuIconClick">
+                <span :class="{iconfont: true,' icon-caidan':!collapse,'icon-menu-un':collapse}"></span>
+              </div>
+            </el-col>
+            <el-col :span="22" :push="1">
+              <div class="wd100p textcenter">
+                header
+              </div>
+            </el-col>
+          </el-row>
+        </el-header>
         <el-main>Main</el-main>
       </el-container>
     </el-container>
@@ -71,14 +93,28 @@
 <script>
   export default {
     name: "Main",
+    data() {
+      return {
+        collapse: false
+      }
+    },
     created: function () {
+    },
+    methods: {
+      menuIconClick: function () {
+        this.collapse = !this.collapse
+      }
     }
   }
 </script>
 
 <style scoped>
   .el-header {
-    text-align: center;
+    line-height: 60px;
+  }
+
+  .el-aside {
+    transition: width 0.5s;
   }
 
   .el-main {

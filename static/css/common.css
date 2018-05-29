@@ -1,5 +1,5 @@
 /* 阿里适量图标开始*/
-@import "//at.alicdn.com/t/font_626489_tdl4og3dghjdzpvi.css";
+@import "//at.alicdn.com/t/font_626489_tt5hu17dmlvj9k9.css";
 /* 阿里适量图标结束*/
 
 body {
@@ -62,6 +62,10 @@ img {
 
 .relative {
   position: relative;
+}
+
+.absolute {
+  position: absolute;
 }
 
 .top0 {
