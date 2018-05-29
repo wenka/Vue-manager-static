@@ -10,19 +10,25 @@
       </div>
       <!-- 登录表单 -->
       <div class="wd95p marginAuto border-all border-color-two mt20 br5">
-        <div class="pt20 pb20 ft15 border-bottom border-color-three lh30 font-minor-color"  style="height: 30px" @click="inputClick($event,'accountShow')">
+        <div class="pt20 pb20 ft15 border-bottom border-color-three lh30 font-minor-color" style="height: 30px"
+             @click="inputClick($event,'accountShow')" ref="accountDiv">
           <div class="wd95p marginAuto">
             <span>Email or Username</span>
             <transition name="el-zoom-in-top">
-              <input v-show="false" class="mt10 wd95p ft10" ref="accountShow" autofocus="autofocus"/>
+              <input v-show="false" class="mt10 wd95p ft10" ref="accountShow" autofocus="autofocus"
+                     v-model="user.account"
+                     @blur="inputBlur($event,'accountDiv')"/>
             </transition>
           </div>
         </div>
-        <div class="pt20 pb20 ft15 lh30 font-minor-color" style="height: 30px" @click="inputClick($event,'passwordShow')">
+        <div class="pt20 pb20 ft15 lh30 font-minor-color" style="height: 30px"
+             @click="inputClick($event,'passwordShow')" ref="passwordDiv">
           <div class="wd95p marginAuto">
             <span>Password</span>
             <transition name="el-zoom-in-top">
-              <input v-show="false" class="mt10 wd95p ft10" ref="passwordShow" autofocus="autofocus"/>
+              <input v-show="false" class="mt10 wd95p ft10" ref="passwordShow" autofocus="autofocus"
+                     v-model="user.password"
+                     @blur="inputBlur($event,'passwordDiv')"/>
             </transition>
           </div>
         </div>
@@ -41,7 +47,10 @@
     name: "Login",
     data() {
       return {
-        // accountShow: false
+        user: {
+          account: null,
+          password: null
+        }
       }
     },
     methods: {
@@ -51,6 +60,16 @@
         el.currentTarget.style.fontSize = '10px'
         el.currentTarget.style.lineHeight = 'normal'
         el.currentTarget.style.color = '#C0C4CC'
+      },
+      inputBlur: function (el, ref) {
+        console.log(el)
+        let v = el.target.value
+        if (!v){
+          el.srcElement.style.display = 'none'
+          this.$refs[ref].style.fontSize = '15px'
+          this.$refs[ref].style.lineHeight = '30px'
+          this.$refs[ref].style.color = '#909399'
+        }
       }
     }
   }
