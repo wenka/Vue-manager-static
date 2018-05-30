@@ -6,6 +6,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 import '../static/css/element-#F56C6C/index.css'
 import '../static/css/common.css'
+import store from './store'
 
 import {Global} from './common/constant'
 
@@ -18,6 +19,7 @@ Vue.prototype.$global = Global
 new Vue({
   el: '#app',
   router,
+  store,
   components: {App},
   template: '<App/>'
 })

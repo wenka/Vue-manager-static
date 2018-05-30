@@ -73,7 +73,7 @@
       },
       loginSubmit: function () {
         this.$router.push({
-          name: 'Main'
+          name: 'main'
         })
       }
     }
