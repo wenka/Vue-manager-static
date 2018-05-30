@@ -15,8 +15,8 @@ const Routers = new Router({
     },
     {
       path: '/',
-      name: 'main',
-      component: resolve => require(['@/pages/Main.vue'], resolve),
+      name: 'home',
+      component: resolve => require(['@/pages/Home.vue'], resolve),
       meta: {
         description: '首页'
       },
@@ -38,7 +38,7 @@ const Routers = new Router({
 Routers.beforeEach((to, from, next) => {
   console.log(to)
   let paths = []
-  if (to.name != 'main') {
+  if (to.name != 'home') {
     paths = [
       {
         label: to.meta.type,

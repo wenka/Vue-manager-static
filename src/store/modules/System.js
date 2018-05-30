@@ -2,7 +2,7 @@ const state = {
   breadcrumbs: [
     {
       label: '首页',
-      name: 'main'
+      name: 'home'
     }
   ]
 }
@@ -12,7 +12,7 @@ const mutations = {
     let paths = [
       {
         label: '首页',
-        name: 'main'
+        name: 'home'
       }
     ]
     paths = paths.concat(breadcrumbs)
