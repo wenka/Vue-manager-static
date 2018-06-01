@@ -35,24 +35,6 @@ const Routers = new Router({
   ]
 })
 Routers.beforeEach((to, from, next) => {
-  let paths = []
-  if (to.name != 'home') {
-    paths = [
-      {
-        label: to.meta.type,
-        name: null
-      },
-      {
-        label: to.meta.category,
-        name: null
-      },
-      {
-        label: to.meta.description,
-        name: to.name
-      }
-    ]
-  }
-  Store.commit('updateBreadcrumb', paths)
   next()
 })
 export default Routers

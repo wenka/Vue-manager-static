@@ -29,12 +29,13 @@
     name: "Header",
     data() {
       return {
-        collapse: false
+        collapse: false,
+        breadcrumbs: []
       }
     },
-    computed: {
-      breadcrumbs: function () {
-        return this.$store.state.System.breadcrumbs
+    watch: {
+      '$route': function () {
+        this.getBreadcrumbs()
       }
     },
     methods: {
@@ -44,6 +45,35 @@
       menuIconClick: function () {
         this.collapse = !this.collapse
         this.$store.commit('triggerCollapse')
+      },
+      getBreadcrumbs: function () {
+        let router = this.$route
+        let paths = [{
+          label: '首页',
+          name: 'home'
+        }]
+        if (router.name != 'home') {
+          paths = [
+            {
+              label: '首页',
+              name: 'home'
+            },
+            {
+              label: router.meta.type,
+              name: null
+            },
+            {
+              label: router.meta.category,
+              name: null
+            },
+            {
+              label: router.meta.description,
+              name: router.name
+            }
+          ]
+        }
+        this.breadcrumbs = paths
+        console.log(this.breadcrumbs)
       }
     }
   }

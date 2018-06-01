@@ -6,7 +6,7 @@
       </el-aside>
       <el-container>
         <el-header class="shadow">
-          <wk-header @menuController="menuController"></wk-header>
+          <wk-header></wk-header>
         </el-header>
         <el-main>
           <transition name="el-zoom-in-center">
