@@ -4,7 +4,8 @@ const state = {
       label: '首页',
       name: 'home'
     }
-  ]
+  ],
+  menuCollapse: false
 }
 
 const mutations = {
@@ -17,6 +18,9 @@ const mutations = {
     ]
     paths = paths.concat(breadcrumbs)
     state.breadcrumbs = paths
+  },
+  triggerCollapse: function (state) {
+    state.menuCollapse = !state.menuCollapse
   }
 }
 export default {

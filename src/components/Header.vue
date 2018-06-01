@@ -43,7 +43,7 @@
        */
       menuIconClick: function () {
         this.collapse = !this.collapse
-        this.$emit('menuController', this.collapse)
+        this.$store.commit('triggerCollapse')
       }
     }
   }

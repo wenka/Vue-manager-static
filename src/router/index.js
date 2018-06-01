@@ -35,7 +35,6 @@ const Routers = new Router({
   ]
 })
 Routers.beforeEach((to, from, next) => {
-  console.log(to)
   let paths = []
   if (to.name != 'home') {
     paths = [

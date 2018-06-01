@@ -77,13 +77,12 @@
 
 <script>
   export default {
-    props: {
-      collapse: {
-        type: Boolean,
-        default: false
+    name: "Menus",
+    computed: {
+      collapse: function () {
+          return this.$store.state.System.menuCollapse
       }
     },
-    name: "Menus",
     methods: {
       /**
        * 菜单点击事件
