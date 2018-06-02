@@ -12,9 +12,27 @@ const Routers = new Router({
       name: 'login',
       component: resolve => require(['@/pages/Login.vue'], resolve),
     },
+    // dashboard
     {
       path: '/',
-      name: 'home',
+      component: resolve => require(['@/pages/Home.vue'], resolve),
+      meta: {
+        title: '首页'
+      },
+      children: [
+        {
+          path: '/',
+          name: 'dashboard',
+          component: resolve => require(['@/pages/dashboard/Dashboard.vue'], resolve),
+          meta: {
+            title: 'dashboard'
+          }
+        }
+      ]
+    },
+    // 内容管理
+    {
+      path: '/',
       component: resolve => require(['@/pages/Home.vue'], resolve),
       meta: {
         title: '内容管理'
@@ -32,12 +50,44 @@ const Routers = new Router({
     }
   ]
 })
+
+/**
+ * 获取头部面包屑
+ *
+ * @param to
+ * @returns {*[]}
+ */
+const getBreadcrumbs = function (to) {
+  let matched = to.matched
+  let breadCrumbs = [
+    {
+      meta: {
+        title: '首页'
+      },
+      name: 'dashboard'
+    }
+  ]
+  if (to.name != 'dashboard') {
+    for (let item of matched) {
+      let o = {
+        meta: item.meta,
+        name: item.name
+      }
+      breadCrumbs.push(o)
+    }
+  }
+
+  return breadCrumbs;
+}
+
 Routers.beforeEach((to, from, next) => {
+  Store.commit('updateBreadcrumbs', getBreadcrumbs(to))
   let userInfo = Store.state.System.userInfo
   if (userInfo == null && to.name != 'login') {
-    next({
-      name: 'login'
-    })
+    // next({
+    //   name: 'login'
+    // })
+    next()
   } else {
     next()
   }

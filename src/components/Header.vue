@@ -10,11 +10,11 @@
         <div style="padding: 24px">
           <el-breadcrumb separator="/">
             <template v-for="item in breadcrumbs">
-              <el-breadcrumb-item v-if="item.name" :to="{ name: item.name }" :key="item.label">
-                <span class="cursor-point cursor-point-color-theme">{{item.label}}</span>
+              <el-breadcrumb-item v-if="item.name" :to="{ name: item.name }" :key="item.name">
+                <span class="cursor-point cursor-point-color-theme">{{item.meta.title}}</span>
               </el-breadcrumb-item>
-              <el-breadcrumb-item v-else :key="item.label">
-                <span>{{item.label}}</span>
+              <el-breadcrumb-item v-else :key="item.name">
+                <span>{{item.meta.title}}</span>
               </el-breadcrumb-item>
             </template>
           </el-breadcrumb>
@@ -37,11 +37,6 @@
         return this.$store.state.System.breadcrumbs
       }
     },
-    watch: {
-      '$route': function () {
-        this.getBreadcrumbs()
-      }
-    },
     methods: {
       /**
        * 控制菜单展开-合并
@@ -49,26 +44,6 @@
       menuIconClick: function () {
         this.collapse = !this.collapse
         this.$store.commit('triggerCollapse')
-      },
-      getBreadcrumbs: function () {
-        let router = this.$route
-        let paths = [{
-          label: '首页',
-          name: 'home'
-        }]
-        if (router.name != 'home') {
-          paths = [
-            {
-              label: '首页',
-              name: 'home'
-            },
-            {
-              label: router.meta.title,
-              name: router.name
-            }
-          ]
-        }
-        this.$store.commit('updateBreadcrumbs', paths)
       }
     }
   }

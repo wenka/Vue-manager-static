@@ -1,9 +1,6 @@
 const state = {
   menuCollapse: false, // 菜单栏控制器
-  breadcrumbs: [{
-    label: '首页',
-    name: 'home'
-  }], // 面包屑
+  breadcrumbs: [], // 面包屑
   userInfo: null
 }
 
@@ -21,8 +18,8 @@ const mutations = {
    * 更新头部面部屑
    * @param state
    */
-  updateBreadcrumbs: function (state, breadcrumbs) {
-    state.breadcrumbs = breadcrumbs;
+  updateBreadcrumbs: function (state, breadcrumbList) {
+    state.breadcrumbs = breadcrumbList
   },
   /**
    * 菜单栏状态 更改时间

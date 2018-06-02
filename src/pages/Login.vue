@@ -96,7 +96,7 @@
           }
           this.$store.commit('updateUserInfo', userInfo)
           this.$router.push({
-            name: 'home'
+            name: 'dashboard'
           })
         } else {
           this.errorMsg = '用户名密码不匹配'
