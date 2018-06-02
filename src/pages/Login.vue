@@ -26,12 +26,21 @@
           <div class="wd95p marginAuto">
             <span>Password</span>
             <transition name="el-zoom-in-top">
-              <input v-show="false" class="mt10 wd95p ft10" ref="passwordShow" autofocus="autofocus"
+              <input type="password" v-show="false" class="mt10 wd95p ft10" ref="passwordShow" autofocus="autofocus"
                      v-model="user.password"
                      @blur="inputBlur($event,'passwordDiv')"/>
             </transition>
           </div>
         </div>
+      </div>
+
+      <div v-if="errorMsg" class="mt10">
+        <el-alert
+          :title="errorMsg"
+          type="error"
+          center
+          show-icon>
+        </el-alert>
       </div>
 
       <!-- 登录按钮 -->
@@ -47,9 +56,10 @@
     name: "Login",
     data() {
       return {
+        errorMsg: null,
         user: {
-          account: null,
-          password: null
+          account: 'admin',
+          password: 'admin'
         }
       }
     },
@@ -62,7 +72,6 @@
         el.currentTarget.style.color = '#C0C4CC'
       },
       inputBlur: function (el, ref) {
-        console.log(el)
         let v = el.target.value
         if (!v) {
           el.srcElement.style.display = 'none'
@@ -72,9 +81,27 @@
         }
       },
       loginSubmit: function () {
-        this.$router.push({
-          name: 'home'
-        })
+        if (!this.user.account) {
+          this.errorMsg = '用户名不能为空'
+          return
+        }
+
+        if (!this.user.password) {
+          this.errorMsg = '密码不能为空'
+          return
+        }
+        if (this.user.account == 'admin' && this.user.password == 'admin') {
+          let userInfo = {
+            token: 'admin'
+          }
+          this.$store.commit('updateUserInfo', userInfo)
+          this.$router.push({
+            name: 'home'
+          })
+        } else {
+          this.errorMsg = '用户名密码不匹配'
+          return
+        }
       }
     }
   }

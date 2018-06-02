@@ -1,24 +1,33 @@
 const state = {
-  breadcrumbs: [
-    {
-      label: '首页',
-      name: 'home'
-    }
-  ],
-  menuCollapse: false
+  menuCollapse: false, // 菜单栏控制器
+  breadcrumbs: [{
+    label: '首页',
+    name: 'home'
+  }], // 面包屑
+  userInfo: null
 }
 
 const mutations = {
-  updateBreadcrumb: function (state, breadcrumbs) {
-    let paths = [
-      {
-        label: '首页',
-        name: 'home'
-      }
-    ]
-    paths = paths.concat(breadcrumbs)
-    state.breadcrumbs = paths
+
+  /**
+   * 保存用户登录态
+   * @param state
+   * @param userInfo
+   */
+  updateUserInfo: function (state, userInfo) {
+    state.userInfo = userInfo
   },
+  /**
+   * 更新头部面部屑
+   * @param state
+   */
+  updateBreadcrumbs: function (state, breadcrumbs) {
+    state.breadcrumbs = breadcrumbs;
+  },
+  /**
+   * 菜单栏状态 更改时间
+   * @param state
+   */
   triggerCollapse: function (state) {
     state.menuCollapse = !state.menuCollapse
   }

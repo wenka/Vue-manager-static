@@ -17,7 +17,7 @@ const Routers = new Router({
       name: 'home',
       component: resolve => require(['@/pages/Home.vue'], resolve),
       meta: {
-        description: '首页'
+        title: '内容管理'
       },
       children: [
         {
@@ -25,9 +25,7 @@ const Routers = new Router({
           name: 'editArticle',
           component: resolve => require(['@/pages/article/EditArticle.vue'], resolve),
           meta: {
-            type: '内容管理',
-            category: '文章',
-            description: '编辑文章'
+            title: '编辑文章'
           }
         }
       ]
@@ -35,6 +33,13 @@ const Routers = new Router({
   ]
 })
 Routers.beforeEach((to, from, next) => {
-  next()
+  let userInfo = Store.state.System.userInfo
+  if (userInfo == null && to.name != 'login') {
+    next({
+      name: 'login'
+    })
+  } else {
+    next()
+  }
 })
 export default Routers

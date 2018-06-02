@@ -29,8 +29,12 @@
     name: "Header",
     data() {
       return {
-        collapse: false,
-        breadcrumbs: []
+        collapse: false
+      }
+    },
+    computed: {
+      breadcrumbs: function () {
+        return this.$store.state.System.breadcrumbs
       }
     },
     watch: {
@@ -59,21 +63,12 @@
               name: 'home'
             },
             {
-              label: router.meta.type,
-              name: null
-            },
-            {
-              label: router.meta.category,
-              name: null
-            },
-            {
-              label: router.meta.description,
+              label: router.meta.title,
               name: router.name
             }
           ]
         }
-        this.breadcrumbs = paths
-        console.log(this.breadcrumbs)
+        this.$store.commit('updateBreadcrumbs', paths)
       }
     }
   }
