@@ -1,7 +1,7 @@
 <template>
   <section>
     <el-container style="height: 100vh">
-      <el-aside :width="collapse?'64px':'300px'" class="overflow-hidden border-right border-color-theme">
+      <el-aside :width="collapse?'64px':'250px'" class="overflow-hidden">
         <wk-menus></wk-menus>
       </el-aside>
       <el-container>

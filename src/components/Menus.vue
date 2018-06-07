@@ -1,11 +1,17 @@
 <template>
-  <section>
+  <section class="h100p">
     <!-- 菜单begin -->
-    <div class="theme textcenter ft-bolder lh25 cursor-point cursor-point-color-theme lh60">
+    <div class="theme textcenter ft-bolder cursor-point cursor-point-color-theme lh60">
       <span :class="{ftStyleItalic:collapse}">{{collapse?'文卡':'LazyBook'}}</span>
     </div>
-    <div class="mt5">
-      <el-menu unique-opened mode="vertical" :active-text-color="$global.theme" :collapse="collapse"
+    <div class="mt5 h100p">
+      <el-menu unique-opened
+               mode="vertical"
+               class="sidebar-el-menu h100p"
+               :active-text-color="$global.theme"
+               :background-color="$global.menusBgColor"
+               :collapse="collapse"
+               :default-active="onRoutes"
                @select="menuSelect">
         <el-submenu index="1">
           <template slot="title">
@@ -80,7 +86,10 @@
     name: "Menus",
     computed: {
       collapse: function () {
-          return this.$store.state.System.menuCollapse
+        return this.$store.state.System.menuCollapse
+      },
+      onRoutes: function () {
+        return this.$route.path.replace('/', '');
       }
     },
     methods: {
@@ -97,5 +106,7 @@
 </script>
 
 <style scoped>
-
+  .sidebar-el-menu:not(.el-menu--collapse) {
+    width: 250px;
+  }
 </style>

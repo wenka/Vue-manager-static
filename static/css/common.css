@@ -265,8 +265,12 @@ img {
   height: initial;
 }
 
+.h100p {
+  height: 100%;
+}
+
 .h90 {
-  width: 90px;
+  height: 90px;
   line-height: 90px;
 }
 
@@ -359,6 +363,10 @@ img {
 
 .inline-block {
   display: inline-block;
+}
+
+.block {
+  display: block;
 }
 
 /* margin*/
