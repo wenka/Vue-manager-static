@@ -8,12 +8,12 @@ import '../static/css/element-#F56C6C/index.css'
 import '../static/css/common.css'
 import store from './store'
 
-import {Global} from './common/constant'
+import {globalColor} from './common/constant'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
-Vue.prototype.$global = Global
+Vue.prototype.$globalColor = globalColor
 
 /* eslint-disable no-new */
 new Vue({

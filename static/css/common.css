@@ -1,5 +1,5 @@
 /* 阿里适量图标开始*/
-@import "//at.alicdn.com/t/font_626489_tt5hu17dmlvj9k9.css";
+@import "//at.alicdn.com/t/font_626489_2ia7va3kunjnhfr.css";
 /* 阿里适量图标结束*/
 
 body {
@@ -226,6 +226,10 @@ img {
   color: #F56C6C;
 }
 
+.font-white-color {
+  color: #FFFFFF;
+}
+
 /* 字体颜色结束 */
 
 /* 字体大小开始 */
@@ -335,6 +339,10 @@ img {
   line-height: 30px;
 }
 
+.lh35 {
+  line-height: 35px;
+}
+
 .lh40 {
   line-height: 40px;
 }
@@ -350,6 +358,14 @@ img {
 /* 高度结束*/
 
 /* 圆角开始*/
+.br1 {
+  border-radius: 1px;
+}
+
+.br2 {
+  border-radius: 2px;
+}
+
 .br5 {
   border-radius: 5px;
 }
@@ -404,6 +420,10 @@ img {
   margin-top: 40px;
 }
 
+.ml5 {
+  margin-left: 5px;
+}
+
 .ml10 {
   margin-left: 10px;
 }
@@ -414,6 +434,10 @@ img {
 
 .ml30 {
   margin-left: 30px;
+}
+
+.mr5 {
+  margin-right: 5px;
 }
 
 .mr10 {

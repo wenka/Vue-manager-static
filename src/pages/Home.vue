@@ -5,14 +5,14 @@
         <wk-menus></wk-menus>
       </el-aside>
       <el-container>
-        <el-header class="shadow-bottom">
+        <el-header>
           <wk-header></wk-header>
         </el-header>
-        <div class="shadow mt5 mb5 ml10 mr10 br5">
-          1
-        </div>
+        <!-- 标签面板begin -->
+        <wk-tags-view></wk-tags-view>
+        <!-- 标签面板end -->
         <el-main class="bg-theme">
-          <transition name="el-zoom-in-center">
+          <transition name="el-fade-in">
             <router-view>
             </router-view>
           </transition>
@@ -23,13 +23,14 @@
 </template>
 
 <script>
-  import WkMenus from '@/components/Menus'
-  import WkHeader from '@/components/Header'
+  import WkMenus from '@/components/layout/Menus'
+  import WkHeader from '@/components/layout/Header'
+  import WkTagsView from '@/components/layout/TagsView'
 
   export default {
     name: "Home",
     components: {
-      WkMenus, WkHeader
+      WkMenus, WkHeader, WkTagsView
     },
     computed: {
       collapse: function () {
@@ -46,5 +47,9 @@
 
   .el-aside {
     transition: width 0.5s;
+  }
+
+  .tag-hover:hover {
+    background-color: #888888;
   }
 </style>

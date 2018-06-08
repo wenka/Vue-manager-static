@@ -5,14 +5,14 @@
       <el-menu unique-opened
                mode="vertical"
                class="sidebar-el-menu h100p"
-               :active-text-color="$global.theme"
-               :background-color="$global.menusBgColor"
-               :text-color="$global.textColor"
+               :active-text-color="$globalColor.theme"
+               :background-color="$globalColor.menusBgColor"
+               :text-color="$globalColor.menusTextColor"
                :collapse="collapse"
                :default-active="onRoutes"
                @select="menuSelect">
         <div class="theme textcenter ft-bolder cursor-point cursor-point-color-theme lh60"
-             :style="{backgroundColor: $global.menusBgColor}">
+             :style="{backgroundColor: $globalColor.menusBgColor}">
           <span :class="{ftStyleItalic:collapse}">{{collapse?'文卡':'LazyBook'}}</span>
         </div>
         <el-submenu index="1">

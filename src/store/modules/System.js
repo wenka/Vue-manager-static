@@ -1,7 +1,8 @@
 const state = {
   menuCollapse: false, // 菜单栏控制器
   breadcrumbs: [], // 面包屑
-  userInfo: null
+  userInfo: null,
+  visitedViews: []
 }
 
 const mutations = {
@@ -27,6 +28,17 @@ const mutations = {
    */
   triggerCollapse: function (state) {
     state.menuCollapse = !state.menuCollapse
+  },
+  /**
+   * 添加标签
+   * @param state
+   * @param view
+   */
+  addViews: function (state, view) {
+    if (state.visitedViews.some(v => v.path == view.path)) {
+    } else {
+      state.visitedViews.push(view)
+    }
   }
 }
 export default {
