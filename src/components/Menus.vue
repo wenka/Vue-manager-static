@@ -1,18 +1,20 @@
 <template>
   <section class="h100p">
     <!-- 菜单begin -->
-    <div class="theme textcenter ft-bolder cursor-point cursor-point-color-theme lh60">
-      <span :class="{ftStyleItalic:collapse}">{{collapse?'文卡':'LazyBook'}}</span>
-    </div>
-    <div class="mt5 h100p">
+    <div class="h100p">
       <el-menu unique-opened
                mode="vertical"
                class="sidebar-el-menu h100p"
                :active-text-color="$global.theme"
                :background-color="$global.menusBgColor"
+               :text-color="$global.textColor"
                :collapse="collapse"
                :default-active="onRoutes"
                @select="menuSelect">
+        <div class="theme textcenter ft-bolder cursor-point cursor-point-color-theme lh60"
+             :style="{backgroundColor: $global.menusBgColor}">
+          <span :class="{ftStyleItalic:collapse}">{{collapse?'文卡':'LazyBook'}}</span>
+        </div>
         <el-submenu index="1">
           <template slot="title">
             <i class="iconfont icon-neirong">&nbsp;</i>

@@ -3,7 +3,7 @@
     <el-row>
       <el-col :span="1">
         <div class="inline-block cursor-point-color-theme cursor-point" @click="menuIconClick">
-          <span :class="{iconfont: true,' icon-caidan':!collapse,'icon-menu-un':collapse}"></span>
+          <div :class="{iconfont: true,' icon-caidan':true,'rote90':collapse,transition: true}"></div>
         </div>
       </el-col>
       <el-col :span="22">

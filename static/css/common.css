@@ -53,6 +53,16 @@ img {
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#888888');
 }
 
+.shadow-bottom {
+  -moz-box-shadow: 1px 1px 5px #888888;
+  -webkit-box-shadow: 1px 1px 5px #888888;
+  box-shadow: 1px 1px 5px #888888;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#888888')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#888888');
+}
+
 /* 阴影结束*/
 
 /* 位置开始*/
@@ -414,6 +424,10 @@ img {
   margin-top: 60px;
 }
 
+.mb5 {
+  margin-bottom: 5px;
+}
+
 .mb10 {
   margin-bottom: 10px;
 }
@@ -571,4 +585,16 @@ img {
   /* For IE 5.5 - 7 */
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#F56C6C');
   border-radius: 5px;
+}
+
+.rote90 {
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -moz-transform: rotate(-90deg); /* Firefox */
+  -webkit-transform: rotate(-90deg); /* Safari 和 Chrome */
+  -o-transform: rotate(-90deg); /* Opera */
+}
+
+.transition {
+  transition: all 0.8s;
 }

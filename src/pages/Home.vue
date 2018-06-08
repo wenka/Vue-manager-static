@@ -1,14 +1,17 @@
 <template>
   <section>
     <el-container style="height: 100vh">
-      <el-aside :width="collapse?'64px':'250px'" class="overflow-hidden">
+      <el-aside class="overflow-hidden" :width="collapse?'60px':'250px'">
         <wk-menus></wk-menus>
       </el-aside>
       <el-container>
-        <el-header class="shadow">
+        <el-header class="shadow-bottom">
           <wk-header></wk-header>
         </el-header>
-        <el-main>
+        <div class="shadow mt5 mb5 ml10 mr10 br5">
+          1
+        </div>
+        <el-main class="bg-theme">
           <transition name="el-zoom-in-center">
             <router-view>
             </router-view>
