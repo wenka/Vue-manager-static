@@ -43,7 +43,15 @@ const Routers = new Router({
           name: 'editArticle',
           component: resolve => require(['@/pages/article/EditArticle.vue'], resolve),
           meta: {
-            title: '编辑文章'
+            title: '发布文章'
+          }
+        },
+        {
+          path: 'listArticle',
+          name: 'listArticle',
+          component: resolve => require(['@/pages/article/ListArticle.vue'], resolve),
+          meta: {
+            title: '文章列表'
           }
         }
       ]

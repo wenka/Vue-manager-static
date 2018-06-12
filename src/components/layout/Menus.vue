@@ -23,7 +23,7 @@
           <el-menu-item-group>
             <template slot="title">文章</template>
             <el-menu-item index="editArticle"><span class="iconfont icon-bianji">&nbsp;</span>编辑文章</el-menu-item>
-            <el-menu-item index="listAritcle"><span class="iconfont icon-wenzhangliebiaosvg">&nbsp;</span>文章列表
+            <el-menu-item index="listArticle"><span class="iconfont icon-wenzhangliebiaosvg">&nbsp;</span>文章列表
             </el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="类别">
@@ -91,7 +91,7 @@
         return this.$store.state.System.menuCollapse
       },
       onRoutes: function () {
-        return this.$route.path.replace('/', '');
+        return this.$route.name;
       }
     },
     methods: {
