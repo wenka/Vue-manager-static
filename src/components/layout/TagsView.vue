@@ -24,6 +24,9 @@
         active: false
       }
     },
+    created: function(){
+      this.addTags()
+    },
     computed: {
       tags: function () {
         let views = this.$store.state.System.visitedViews

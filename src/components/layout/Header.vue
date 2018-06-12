@@ -6,7 +6,7 @@
           <div :class="{iconfont: true,' icon-caidan':true,'rote90':collapse,transition: true}"></div>
         </div>
       </el-col>
-      <el-col :span="22">
+      <el-col :span="20">
         <div style="padding: 24px">
           <el-breadcrumb separator-class="el-icon-arrow-right">
             <template v-for="item in breadcrumbs">
@@ -18,6 +18,11 @@
               </el-breadcrumb-item>
             </template>
           </el-breadcrumb>
+        </div>
+      </el-col>
+      <el-col :span="3">
+        <div class="textright">
+          <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80"  class="br50p vertical-align" width="40"/>
         </div>
       </el-col>
     </el-row>

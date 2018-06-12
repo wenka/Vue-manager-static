@@ -1,5 +1,5 @@
 /* 阿里适量图标开始*/
-@import "//at.alicdn.com/t/font_626489_2ia7va3kunjnhfr.css";
+@import "//at.alicdn.com/t/font_626489_d4aekypcma8.css";
 /* 阿里适量图标结束*/
 
 body {
@@ -134,6 +134,14 @@ img {
 /* 宽度开始 */
 .wd100p {
   width: 100%;
+}
+
+.wd98p {
+  width: 98%;
+}
+
+.wd96p {
+  width: 96%;
 }
 
 .wd95p {

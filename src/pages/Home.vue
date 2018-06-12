@@ -11,7 +11,7 @@
         <!-- 标签面板begin -->
         <wk-tags-view></wk-tags-view>
         <!-- 标签面板end -->
-        <el-main class="bg-theme">
+        <el-main class="pl10 pr10 pt10 pb10">
           <transition name="el-fade-in">
             <router-view>
             </router-view>

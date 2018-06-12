@@ -21,7 +21,7 @@ const Routers = new Router({
       },
       children: [
         {
-          path: '/',
+          path: 'dashboard',
           name: 'dashboard',
           component: resolve => require(['@/pages/dashboard/Dashboard.vue'], resolve),
           meta: {
@@ -84,10 +84,10 @@ Routers.beforeEach((to, from, next) => {
   Store.commit('updateBreadcrumbs', getBreadcrumbs(to))
   let userInfo = Store.state.System.userInfo
   if (userInfo == null && to.name != 'login') {
-    // next({
-    //   name: 'login'
-    // })
-    next()
+    next({
+      name: 'login'
+    })
+    // next()
   } else {
     next()
   }
