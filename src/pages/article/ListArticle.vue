@@ -14,7 +14,7 @@
               </el-col>
               <el-col :span="6" :push="2">
                 <div class="textright">
-                  <el-dropdown size="mini">
+                  <el-dropdown>
                      <span class="el-dropdown-link">
                       <i class="el-icon-more cursor-point theme"></i>
                     </span>

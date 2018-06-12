@@ -27,12 +27,10 @@
             </el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="类别">
-            <el-menu-item index="newCategory"><span class="iconfont icon-bianji">&nbsp;</span>新增类别</el-menu-item>
             <el-menu-item index="statisticalCategory"><span class="iconfont icon-tongji">&nbsp;</span>类别统计
             </el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="标签">
-            <el-menu-item index="newTag"><span class="iconfont icon-bianji">&nbsp;</span>新增标签</el-menu-item>
             <el-menu-item index="cloudTag"><span class="iconfont icon-ciyun">&nbsp;</span>标签云</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="评论">
