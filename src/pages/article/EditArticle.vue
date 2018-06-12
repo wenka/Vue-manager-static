@@ -2,9 +2,12 @@
   <section>
     <el-row>
       <el-col :span="18">
-        <mavon-editor :ishljs="true" class="word-pad wd100p" v-model="originContent" :subfield="subfield"
-                      v-on:subfieldToggle="subfieldToggle"
-                      @change="contentChangeHandle" style="min-height: 750px"></mavon-editor>
+        <el-input placeholder="请输入文章标题"></el-input>
+        <div class="mt10">
+          <mavon-editor :ishljs="true" class="word-pad wd100p" v-model="originContent" :subfield="subfield"
+                        v-on:subfieldToggle="subfieldToggle"
+                        @change="contentChangeHandle" style="min-height: 750px"></mavon-editor>
+        </div>
       </el-col>
       <el-col :span="6">
         <div class="wd98p floatRight">
@@ -89,7 +92,7 @@
                       <el-input size="mini" placeholder="请输入新标签"></el-input>
                     </el-col>
                     <el-col :span="4" :push="2">
-                      <el-button type="primary" size="mini"  @click="addNewTag">确定</el-button>
+                      <el-button type="primary" size="mini" @click="addNewTag">确定</el-button>
                     </el-col>
                     <el-col :span="4" :push="2">
                       <el-button size="mini" @click="addNewTag">取消</el-button>
