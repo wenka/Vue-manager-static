@@ -39,6 +39,14 @@ const mutations = {
     } else {
       state.visitedViews.push(view)
     }
+  },
+  /**
+   * 删除标签
+   * @param state
+   * @param index 标签位置
+   */
+  deleteViews: function (state, index) {
+    state.visitedViews.splice(index,1)
   }
 }
 export default {

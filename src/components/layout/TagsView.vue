@@ -5,10 +5,10 @@
       <div :style="{position: 'relative',left: left +'px'}" class="transition">
           <span class="pt5 pb5 pl5 pr5 ml5 mr5 shadow br2 bg-success cursor-point"
                 :style="{backgroundColor: tag.active?$globalColor.tagActiveColor: $globalColor.tagUnActiveColor, color:  tag.active?$globalColor.tagActiveTextColor: $globalColor.tagUnActiveTextColor}"
-                ref="tags" v-for="(tag,index) in tags" :data-path="tags.path" @click="tagClick($event,tag.path)">
+                ref="tags" v-for="(tag,index) in tags" :data-path="tags.path">
               <span class="iconfont br50p ft10 icon-point-copy transition" v-if="tag.active"></span>
-              <span class="ft10">{{tag.title}}</span>
-              <span class="iconfont icon-del2 br50p ft10 tag-hover"></span>
+              <span class="ft10" @click="tagClick($event,tag.path)">{{tag.title}}</span>
+              <span class="iconfont icon-del2 br50p ft10 tag-hover" @click="tagDelete(index)"></span>
             </span>
       </div>
     </div>
@@ -24,7 +24,7 @@
         active: false
       }
     },
-    created: function(){
+    created: function () {
       this.addTags()
     },
     computed: {
@@ -55,12 +55,21 @@
         }
         this.$store.commit('addViews', view)
       },
+      /**
+       * 标签点击事件
+       * @param el
+       * @param path
+       */
       tagClick: function (el, path) {
         this.moveToCurrentTag(el)
         this.$router.push({
           path: path
         })
       },
+      /**
+       * 移动到当前标签位置
+       * @param el
+       */
       moveToCurrentTag: function (el) {
         let containWidth = this.$refs.scrollDiv.offsetWidth
         let x = el.layerX
@@ -76,13 +85,37 @@
         } else {
           this.left = 0
         }
+      },
+      /**
+       * 标签删除事件
+       * @param index
+       */
+      tagDelete: function (index) {
+        let views = this.tags
+        let deleteView = views[index]
+        this.$store.commit('deleteViews', index)
+        if (views.length == 0) { // 只有一个view 的时候则为全部标签删除，页面跳转到 dashboard 页面
+          this.$router.push({
+            name: 'dashboard'
+          })
+        }else if (this.$route.path != deleteView.path){ //如果删除的不是当前页面时 不做跳转
+          return
+        }else if (index > 0) { // 如果删除的不是第一个标签 跳转到前一个标签页面
+          this.$router.push({
+            path: views[index - 1].path
+          })
+        }else { // 如果删除的是第一个标签 跳转到前一个标签页面
+          this.$router.push({
+            path: views[1].path
+          })
+        }
       }
     }
   }
 </script>
 
 <style scoped>
-  .a {
-    background-color: unset;
+  .tag-hover:hover {
+    background-color: #888888;
   }
 </style>

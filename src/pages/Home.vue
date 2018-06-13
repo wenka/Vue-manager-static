@@ -49,7 +49,4 @@
     transition: width 0.5s;
   }
 
-  .tag-hover:hover {
-    background-color: #888888;
-  }
 </style>
