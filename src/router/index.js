@@ -4,6 +4,84 @@ import Store from '../store'
 
 Vue.use(Router)
 
+/**
+ *  dashboard
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const dashboard = {
+  path: '/',
+  component: resolve => require(['@/pages/Home.vue'], resolve),
+  meta: {
+    title: '首页'
+  },
+  children: [
+    {
+      path: 'dashboard',
+      name: 'dashboard',
+      component: resolve => require(['@/pages/dashboard/Dashboard.vue'], resolve),
+      meta: {
+        title: 'dashboard'
+      }
+    }
+  ]
+}
+
+/**
+ * article
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const article = {
+  path: '/article',
+  component: resolve => require(['@/pages/Home.vue'], resolve),
+  meta: {
+    title: '内容管理'
+  },
+  children: [
+    {
+      path: 'editArticle',
+      name: 'editArticle',
+      component: resolve => require(['@/pages/article/EditArticle.vue'], resolve),
+      meta: {
+        title: '发布文章'
+      }
+    },
+    {
+      path: 'listArticle',
+      name: 'listArticle',
+      component: resolve => require(['@/pages/article/ListArticle.vue'], resolve),
+      meta: {
+        title: '文章列表'
+      }
+    }
+  ]
+}
+
+/**
+ * category
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const category = {
+  path: '/category',
+  component: resolve => require(['@/pages/Home.vue'], resolve),
+  meta: {
+    title: '类别管理'
+  },
+  children: [
+    {
+      path: 'statisticalCategory',
+      name: 'statisticalCategory',
+      component: resolve => require(['@/pages/category/StatisticalCategory.vue'], resolve),
+      meta: {
+        title: '类别统计'
+      }
+    }
+  ]
+}
+
+/**
+ * Routers
+ * @type {VueRouter}
+ */
 const Routers = new Router({
   mode: 'history',
   routes: [
@@ -12,50 +90,9 @@ const Routers = new Router({
       name: 'login',
       component: resolve => require(['@/pages/Login.vue'], resolve),
     },
-    // dashboard
-    {
-      path: '/',
-      component: resolve => require(['@/pages/Home.vue'], resolve),
-      meta: {
-        title: '首页'
-      },
-      children: [
-        {
-          path: 'dashboard',
-          name: 'dashboard',
-          component: resolve => require(['@/pages/dashboard/Dashboard.vue'], resolve),
-          meta: {
-            title: 'dashboard'
-          }
-        }
-      ]
-    },
-    // 内容管理
-    {
-      path: '/',
-      component: resolve => require(['@/pages/Home.vue'], resolve),
-      meta: {
-        title: '内容管理'
-      },
-      children: [
-        {
-          path: 'editArticle',
-          name: 'editArticle',
-          component: resolve => require(['@/pages/article/EditArticle.vue'], resolve),
-          meta: {
-            title: '发布文章'
-          }
-        },
-        {
-          path: 'listArticle',
-          name: 'listArticle',
-          component: resolve => require(['@/pages/article/ListArticle.vue'], resolve),
-          meta: {
-            title: '文章列表'
-          }
-        }
-      ]
-    }
+    dashboard,
+    article,
+    category
   ]
 })
 
