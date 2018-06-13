@@ -111,6 +111,28 @@ const tag = {
 }
 
 /**
+ * comment
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const comment = {
+  path: 'comment',
+  component: resolve => require(['@/pages/Main.vue'], resolve),
+  meta: {
+    title: '评论'
+  },
+  children: [
+    {
+      path: 'reviewComment',
+      name: 'reviewComment',
+      component: resolve => require(['@/pages/comment/ReviewComment.vue'], resolve),
+      meta: {
+        title: '标签云'
+      }
+    }
+  ]
+}
+
+/**
  * 内容管理
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
@@ -123,7 +145,8 @@ const content = {
   children: [
     article,
     category,
-    tag
+    tag,
+    comment
   ]
 }
 
