@@ -41,7 +41,7 @@ const dashboard = {
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
 const article = {
-  path: 'article',
+  path: '/article',
   component: resolve => require(['@/pages/Main.vue'], resolve),
   meta: {
     title: '文章'
@@ -71,7 +71,7 @@ const article = {
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
 const category = {
-  path: 'category',
+  path: '/category',
   component: resolve => require(['@/pages/Main.vue'], resolve),
   meta: {
     title: '类别'
@@ -93,7 +93,7 @@ const category = {
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
 const tag = {
-  path: 'tag',
+  path: '/tag',
   component: resolve => require(['@/pages/Main.vue'], resolve),
   meta: {
     title: '标签'
@@ -115,7 +115,7 @@ const tag = {
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
 const comment = {
-  path: 'comment',
+  path: '/comment',
   component: resolve => require(['@/pages/Main.vue'], resolve),
   meta: {
     title: '评论'
