@@ -9,32 +9,42 @@ Vue.use(Router)
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
 const dashboard = {
-  path: '/',
+  path: '/content',
   component: resolve => require(['@/pages/Home.vue'], resolve),
   meta: {
-    title: '首页'
+    title: '内容管理'
   },
   children: [
     {
-      path: 'dashboard',
-      name: 'dashboard',
-      component: resolve => require(['@/pages/dashboard/Dashboard.vue'], resolve),
+      path: '/',
+      component: resolve => require(['@/pages/Main.vue'], resolve),
       meta: {
-        title: 'dashboard'
-      }
+        title: '首页'
+      },
+      children: [
+        {
+          path: 'dashboard',
+          name: 'dashboard',
+          component: resolve => require(['@/pages/dashboard/Dashboard.vue'], resolve),
+          meta: {
+            title: 'dashboard'
+          }
+        }
+      ]
     }
   ]
 }
+
 
 /**
  * article
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
 const article = {
-  path: '/article',
-  component: resolve => require(['@/pages/Home.vue'], resolve),
+  path: 'article',
+  component: resolve => require(['@/pages/Main.vue'], resolve),
   meta: {
-    title: '内容管理'
+    title: '文章'
   },
   children: [
     {
@@ -61,10 +71,10 @@ const article = {
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
 const category = {
-  path: '/category',
-  component: resolve => require(['@/pages/Home.vue'], resolve),
+  path: 'category',
+  component: resolve => require(['@/pages/Main.vue'], resolve),
   meta: {
-    title: '类别管理'
+    title: '类别'
   },
   children: [
     {
@@ -83,10 +93,10 @@ const category = {
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
 const tag = {
-  path: '/tag',
-  component: resolve => require(['@/pages/Home.vue'], resolve),
+  path: 'tag',
+  component: resolve => require(['@/pages/Main.vue'], resolve),
   meta: {
-    title: '标签管理'
+    title: '标签'
   },
   children: [
     {
@@ -97,6 +107,23 @@ const tag = {
         title: '标签云'
       }
     }
+  ]
+}
+
+/**
+ * 内容管理
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const content = {
+  path: '/content',
+  component: resolve => require(['@/pages/Home.vue'], resolve),
+  meta: {
+    title: '内容管理'
+  },
+  children: [
+    article,
+    category,
+    tag
   ]
 }
 
@@ -113,9 +140,7 @@ const Routers = new Router({
       component: resolve => require(['@/pages/Login.vue'], resolve),
     },
     dashboard,
-    article,
-    category,
-    tag
+    content
   ]
 })
 

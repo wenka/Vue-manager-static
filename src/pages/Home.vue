@@ -8,15 +8,9 @@
         <el-header>
           <wk-header></wk-header>
         </el-header>
-        <!-- 标签面板begin -->
-        <wk-tags-view></wk-tags-view>
-        <!-- 标签面板end -->
-        <el-main class="pl10 pr10 pt10 pb10">
-          <transition name="el-fade-in">
-            <router-view>
-            </router-view>
-          </transition>
-        </el-main>
+        <router-view>
+
+        </router-view>
       </el-container>
     </el-container>
   </section>
@@ -25,12 +19,11 @@
 <script>
   import WkMenus from '@/components/layout/Menus'
   import WkHeader from '@/components/layout/Header'
-  import WkTagsView from '@/components/layout/TagsView'
 
   export default {
     name: "Home",
     components: {
-      WkMenus, WkHeader, WkTagsView
+      WkMenus, WkHeader
     },
     computed: {
       collapse: function () {
