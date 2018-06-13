@@ -79,6 +79,28 @@ const category = {
 }
 
 /**
+ * tag
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const tag = {
+  path: '/tag',
+  component: resolve => require(['@/pages/Home.vue'], resolve),
+  meta: {
+    title: '标签管理'
+  },
+  children: [
+    {
+      path: 'cloudTag',
+      name: 'cloudTag',
+      component: resolve => require(['@/pages/tag/CloudTag.vue'], resolve),
+      meta: {
+        title: '标签云'
+      }
+    }
+  ]
+}
+
+/**
  * Routers
  * @type {VueRouter}
  */
@@ -92,7 +114,8 @@ const Routers = new Router({
     },
     dashboard,
     article,
-    category
+    category,
+    tag
   ]
 })
 
