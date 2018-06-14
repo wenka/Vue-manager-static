@@ -176,6 +176,10 @@ const user = {
   ]
 }
 
+/***
+ * permission
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
 const permission = {
   path: '/permission',
   component: resolve => require(['@/pages/Main.vue'], resolve),
@@ -195,6 +199,28 @@ const permission = {
 }
 
 /**
+ * subscription
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const subscription = {
+  path: '/subscription',
+  component: resolve => require(['@/pages/Main.vue'], resolve),
+  meta: {
+    title: '订阅'
+  },
+  children: [
+    {
+      path: 'listSubscription',
+      name: 'listSubscription',
+      component: resolve => require(['@/pages/subscription/ListSubscription.vue'], resolve),
+      meta: {
+        title: '订阅列表'
+      }
+    }
+  ]
+}
+
+/**
  * 用户管理
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
@@ -206,7 +232,8 @@ const userManager = {
   },
   children: [
     user,
-    permission
+    permission,
+    subscription
   ]
 }
 
@@ -271,7 +298,7 @@ const getBreadcrumbs = function (to) {
 }
 
 Routers.beforeEach((to, from, next) => {
-  if (to.matched.length == 0){
+  if (to.matched.length == 0) {
     next({
       name: 'error404'
     })
