@@ -126,7 +126,7 @@ const comment = {
       name: 'reviewComment',
       component: resolve => require(['@/pages/comment/ReviewComment.vue'], resolve),
       meta: {
-        title: '标签云'
+        title: '评论审核'
       }
     }
   ]
