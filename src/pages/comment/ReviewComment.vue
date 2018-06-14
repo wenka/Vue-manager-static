@@ -3,7 +3,13 @@
     <el-row>
       <el-col :span="16">
         <el-card shadow="hover">
-          <el-table :data="commentList" class="wd98p" highlight-current-row>
+          <el-select placeholder="请选择" v-model="status">
+            <el-option label="全部" value="-1,0,1"></el-option>
+            <el-option label="未审核" value="0"></el-option>
+            <el-option label="审核未通过" value="-1"></el-option>
+            <el-option label="审核通过" value="1"></el-option>
+          </el-select>
+          <el-table :data="commentList" class="wd98p mt10" highlight-current-row>
             <el-table-column
               type="index"
               align="center"
@@ -61,6 +67,7 @@
     name: "reviewComment",
     data() {
       return {
+        status: '-1,0,1',
         sensitiveWords: [
           {
             name: 'TMD'
@@ -95,11 +102,11 @@
               let result = ''
               if (cellValue == 0) {
                 result = '待审核'
-              } else if (cellValue == 1){
+              } else if (cellValue == 1) {
                 result = '通过'
-              } else if (cellValue == -1){
+              } else if (cellValue == -1) {
                 result = '未通过'
-              }else {
+              } else {
                 result = '待审核'
               }
               return result
