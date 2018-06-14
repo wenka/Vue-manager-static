@@ -176,6 +176,24 @@ const user = {
   ]
 }
 
+const permission = {
+  path: '/permission',
+  component: resolve => require(['@/pages/Main.vue'], resolve),
+  meta: {
+    title: '权限'
+  },
+  children: [
+    {
+      path: 'listPermission',
+      name: 'listPermission',
+      component: resolve => require(['@/pages/permission/ListPermission.vue'], resolve),
+      meta: {
+        title: '权限列表'
+      }
+    }
+  ]
+}
+
 /**
  * 用户管理
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
@@ -187,7 +205,8 @@ const userManager = {
     title: '用户管理'
   },
   children: [
-    user
+    user,
+    permission
   ]
 }
 
