@@ -9,7 +9,8 @@ Vue.use(Router)
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
  */
 const dashboard = {
-  path: '/content',
+  path: '/',
+  redirect: '/error404',
   component: resolve => require(['@/pages/Home.vue'], resolve),
   meta: {
     title: '内容管理'
@@ -17,6 +18,7 @@ const dashboard = {
   children: [
     {
       path: '/',
+      redirect: '/error404',
       component: resolve => require(['@/pages/Main.vue'], resolve),
       meta: {
         title: '首页'
@@ -35,7 +37,7 @@ const dashboard = {
   ]
 }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////
 /**
  * article
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
@@ -150,6 +152,52 @@ const content = {
   ]
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * user
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const user = {
+  path: '/user',
+  component: resolve => require(['@/pages/Main.vue'], resolve),
+  meta: {
+    title: '用户'
+  },
+  children: [
+    {
+      path: 'listUser',
+      name: 'listUser',
+      component: resolve => require(['@/pages/user/ListUser.vue'], resolve),
+      meta: {
+        title: '用户列表'
+      }
+    }
+  ]
+}
+
+/**
+ * 用户管理
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const userManager = {
+  path: '/userManager',
+  component: resolve => require(['@/pages/Home.vue'], resolve),
+  meta: {
+    title: '用户管理'
+  },
+  children: [
+    user
+  ]
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+const errorPage = {
+  path: '/404',
+  name: 'error404',
+  component: resolve => require(['@/pages/noFound/NoFound.vue'], resolve),
+}
 /**
  * Routers
  * @type {VueRouter}
@@ -163,7 +211,14 @@ const Routers = new Router({
       component: resolve => require(['@/pages/Login.vue'], resolve),
     },
     dashboard,
-    content
+    content,
+    userManager,
+    errorPage,
+    {
+      path: '*',
+      name: '*',
+      redirect: '/404'
+    }
   ]
 })
 
@@ -197,6 +252,12 @@ const getBreadcrumbs = function (to) {
 }
 
 Routers.beforeEach((to, from, next) => {
+  if (to.matched.length == 0){
+    next({
+      name: 'error404'
+    })
+  }
+
   Store.commit('updateBreadcrumbs', getBreadcrumbs(to))
   let userInfo = Store.state.System.userInfo
   if (userInfo == null && to.name != 'login') {

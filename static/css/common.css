@@ -1,5 +1,5 @@
 /* 阿里适量图标开始*/
-@import "//at.alicdn.com/t/font_626489_d4aekypcma8.css";
+@import "//at.alicdn.com/t/font_626489_8rvdivalc8a.css";
 /* 阿里适量图标结束*/
 
 body {
@@ -619,12 +619,20 @@ img {
   border-radius: 5px;
 }
 
-.rote90 {
+.rote-90 {
   transform: rotate(-90deg);
   -ms-transform: rotate(-90deg); /* IE 9 */
   -moz-transform: rotate(-90deg); /* Firefox */
   -webkit-transform: rotate(-90deg); /* Safari 和 Chrome */
   -o-transform: rotate(-90deg); /* Opera */
+}
+
+.rote45 {
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -moz-transform: rotate(45deg); /* Firefox */
+  -webkit-transform: rotate(45deg); /* Safari 和 Chrome */
+  -o-transform: rotate(45deg); /* Opera */
 }
 
 .transition {
