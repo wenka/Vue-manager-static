@@ -31,19 +31,35 @@
       <el-col :span="7" :push="1">
         <el-card shadow="hover">
           <div slot="header" class="clearfix">
-            <span>文章</span>
+            <span>权限</span>
+            <el-button style="float: right; padding: 3px 0" type="text" @click="addPermissionDiv = !addPermissionDiv"
+                       v-show="!addPermissionDiv">添加权限
+            </el-button>
           </div>
-          <div v-for="(o, index ) in 4" :key="o" class="lh40">
-            <span class="theme">#{{index+1}}&nbsp;&nbsp;</span>{{'文章标题 ' + o }}
-          </div>
-        </el-card>
-
-        <el-card shadow="hover" class="mt10">
-          <div slot="header" class="clearfix">
-            <span>评论</span>
-          </div>
-          <div v-for="(o, index ) in 4" :key="o" class="lh40">
-            <span class="theme">#{{index+1}}&nbsp;&nbsp;</span>{{'评论 ' + o }}
+          <div>
+            <div v-for="(o, index ) in 4" :key="o" class="lh40">
+              <span class="theme">#{{index+1}}&nbsp;&nbsp;</span>{{'权限 ' + o }}
+            </div>
+            <transition name="el-zoom-in-top">
+              <div v-show="addPermissionDiv">
+                <el-row>
+                  <el-col :span="12">
+                    <el-select placeholder="请选择取权限" size="mini" v-model="permission">
+                      <el-option label="权限1" value="1"></el-option>
+                      <el-option label="权限2" value="2"></el-option>
+                      <el-option label="权限3" value="3"></el-option>
+                      <el-option label="权限4" value="4"></el-option>
+                    </el-select>
+                  </el-col>
+                  <el-col :span="4" :push="2">
+                    <el-button type="primary" size="mini" @click="addPermissionDiv = !addPermissionDiv">确定</el-button>
+                  </el-col>
+                  <el-col :span="4" :push="2">
+                    <el-button size="mini" @click="addPermissionDiv = !addPermissionDiv">取消</el-button>
+                  </el-col>
+                </el-row>
+              </div>
+            </transition>
           </div>
         </el-card>
       </el-col>
@@ -56,6 +72,8 @@
     name: "ListUser",
     data() {
       return {
+        addPermissionDiv: false, //添加权限div控制
+        permission: null,
         columns: [
           {
             prop: 'name',
