@@ -93,7 +93,6 @@
       tagDelete: function (index) {
         let views = this.tags
         let deleteView = views[index]
-        this.$store.commit('deleteViews', index)
         if (views.length == 0) { // 只有一个view 的时候则为全部标签删除，页面跳转到 dashboard 页面
           this.$router.push({
             name: 'dashboard'
@@ -109,6 +108,7 @@
             path: views[1].path
           })
         }
+        this.$store.commit('deleteViews', index)
       }
     }
   }
