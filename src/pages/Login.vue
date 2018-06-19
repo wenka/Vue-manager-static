@@ -34,6 +34,16 @@
         </div>
       </div>
 
+      <div class="mt10">
+        <el-alert
+          title="用户名与密码都为admin"
+          close-text="知道了"
+          type="info"
+          center
+          show-icon>
+        </el-alert>
+      </div>
+
       <div v-if="errorMsg" class="mt10">
         <el-alert
           :title="errorMsg"
@@ -58,8 +68,8 @@
       return {
         errorMsg: null,
         user: {
-          account: 'admin',
-          password: 'admin'
+          account: '',
+          password: ''
         }
       }
     },

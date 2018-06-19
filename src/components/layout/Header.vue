@@ -22,7 +22,13 @@
       </el-col>
       <el-col :span="3">
         <div class="textright">
-          <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80"  class="br50p vertical-align" width="40"/>
+          <el-dropdown @command="dropdownClick">
+            <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80"
+                 class="br50p vertical-align" width="60"/>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="loginOut">退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </div>
       </el-col>
     </el-row>
@@ -49,6 +55,19 @@
       menuIconClick: function () {
         this.collapse = !this.collapse
         this.$store.commit('triggerCollapse')
+      },
+      /**
+       * 下拉菜单选择事件
+       * @param command
+       */
+      dropdownClick: function (command) {
+        if (command == 'loginOut'){
+          let userInfo = null
+          this.$store.commit('updateUserInfo', userInfo)
+          this.$router.push({
+            name: 'login'
+          })
+        }
       }
     }
   }
