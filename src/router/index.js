@@ -37,7 +37,7 @@ const dashboard = {
   ]
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 /**
  * article
  * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
@@ -152,7 +152,7 @@ const content = {
   ]
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * user
@@ -239,6 +239,44 @@ const userManager = {
 
 //////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * feedback
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const feedback = {
+  path: '/feedback',
+  component: resolve => require(['@/pages/Main.vue'], resolve),
+  meta: {
+    title: '反馈'
+  },
+  children: [
+    {
+      path: 'listFeedback',
+      name: 'listFeedback',
+      component: resolve => require(['@/pages/feedback/Feedback.vue'], resolve),
+      meta: {
+        title: '意见列表'
+      }
+    }
+  ]
+}
+
+/**
+ *  系统管理
+ * @type {{}}
+ */
+const systemManager = {
+  path: '/systemManager',
+  component: resolve => require(['@/pages/Home.vue'], resolve),
+  meta: {
+    title: '系统管理'
+  },
+  children: [
+    feedback
+  ]
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
 const errorPage = {
   path: '/404',
   name: 'error404',
@@ -259,6 +297,7 @@ const Routers = new Router({
     dashboard,
     content,
     userManager,
+    systemManager,
     errorPage,
     {
       path: '*',
