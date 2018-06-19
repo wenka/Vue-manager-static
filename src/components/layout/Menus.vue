@@ -66,7 +66,7 @@
             <el-menu-item index="listFeedback"><span class="iconfont icon-yijian">&nbsp;</span>意见列表</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="组件">
-            <el-menu-item index="listComponents"><span class="iconfont icon-zujian-yewu">&nbsp;</span>组件列表
+            <el-menu-item index="listUnit"><span class="iconfont icon-zujian-yewu">&nbsp;</span>组件列表
             </el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group>

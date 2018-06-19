@@ -262,6 +262,28 @@ const feedback = {
 }
 
 /**
+ * unit
+ * @type {{path: string, component: (function(*=): *), meta: {title: string}, children: *[]}}
+ */
+const unit = {
+  path: '/unit',
+  component: resolve => require(['@/pages/Main.vue'], resolve),
+  meta: {
+    title: '组件'
+  },
+  children: [
+    {
+      path: 'listUnit',
+      name: 'listUnit',
+      component: resolve => require(['@/pages/unit/Unit.vue'], resolve),
+      meta: {
+        title: '组件列表'
+      }
+    }
+  ]
+}
+
+/**
  *  系统管理
  * @type {{}}
  */
@@ -272,7 +294,8 @@ const systemManager = {
     title: '系统管理'
   },
   children: [
-    feedback
+    feedback,
+    unit
   ]
 }
 
